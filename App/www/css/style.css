@@ -1,0 +1,81 @@
+/* Empty. Add your own CSS if you like */
+
+h4, p{
+	color:#002E6C;
+	text-align: center;
+}
+.item 	a:hover {
+    color:#91D937;
+}
+
+.title {
+    color:#FFFFFF !important;
+}
+
+.separator{
+	margin-top: 1.5em !important;
+}
+
+.separator-l-r{
+	margin-left: 1em !important;
+	margin-right: 1em !important;
+	width: 90% !important;
+    height: 100% !important;
+	text-align: center !important;
+}
+
+.separator-b{
+	margin-bottom: -1.3em !important;
+}
+
+.separator-l{
+	margin-left: 2.5em !important;
+	margin-right: 2.5em !important;
+	width: 84% !important;
+}
+
+.border25{
+    border-radius: 25px;
+    height: 2em;
+}
+
+.text_input{
+    border-radius: 2px;
+    height: 2em !important;
+}
+
+.averia-bar{
+	border-radius: 20px;
+	margin-left: 2.3em !important;
+	margin-right: 2.5em !important;
+	width: 84% !important;
+	background-color: #39A9DE !important;
+	color: #FFFFFF !important;
+	height: 1.5em !important;
+}
+
+.averia-container, .averia-description,.actividad,.img_actividad{
+   	background-color: #fff;
+}
+
+.inicio-container{
+	padding-top:2em;
+}
+
+.averia-description{
+    padding: 1.3em;
+    text-align: center;
+}
+
+.list{
+	margin-top: 10em !important;
+}
+
+ion-content{
+	background-color: #E2E7EB !important;
+}
+
+.servicios-bar{
+	background-color: #39A9DE !important;
+	color: #FFFFFF !important;
+}

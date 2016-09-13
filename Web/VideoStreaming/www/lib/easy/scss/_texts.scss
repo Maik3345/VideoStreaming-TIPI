@@ -1,0 +1,408 @@
+/*TIPOGRAFIAS*/
+/*
+LINK PARA EL HTML:href='https://fonts.googleapis.com/css?family=Merriweather+Sans|Roboto+Slab|Lato|Ubuntu' rel='stylesheet' type='text/css'
+
+Tipos de font-family:
+
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Roboto Slab', serif;
+font-family: 'Merriweather Sans', sans-serif;
+
+*/
+/*Objeto donde se almacenan los tipos de fuentes que podran tener las fuentes*/
+$ObjTypography:
+(
+'Lato',
+'Merriweather Sans',
+'Roboto Slab',
+'Ubuntu'
+);
+
+$posicionList: 1;
+
+
+.font-bold
+{
+	font-weight: bold !important;
+}
+%PH_font
+{
+	margin:0 0 10px;
+	cursor:default;
+	width: 100%;
+	background-color: transparent;
+	text-rendering: auto;
+	word-wrap: break-word;
+	line-height: 1.2 !important;
+	&:hover
+	{
+		opacity: 0.9;
+	}
+}
+
+
+/*FUENTES CON FONT-FAMYLI PREDETERMINDAO*/
+.font-1
+{
+	font-size: $h8-font-size;
+	font-family: 'Lato', sans-serif;
+	@extend %PH_font;
+}
+.font-2
+{
+	font-size: $h1-font-size;
+	font-family: 'Lato', sans-serif;
+	@extend %PH_font;
+}
+.font-3
+{
+	font-size: $h2-font-size  !important;
+	font-family: 'Lato', sans-serif;
+	@extend %PH_font;
+}
+.font-4
+{
+	font-size: $h3-font-size;
+	font-family: 'Lato', sans-serif;
+	@extend %PH_font;
+}
+.font-5
+{
+	font-size: $h4-font-size  !important;
+	font-family: 'Lato', sans-serif;
+	@extend %PH_font;
+}
+.font-6
+{
+	font-size: $h5-font-size;
+	font-family: 'Lato', sans-serif;
+	@extend %PH_font;
+}
+.font-7
+{
+	font-size: $h6-font-size;
+	font-family: 'Lato', sans-serif;
+	@extend %PH_font;
+}
+.font-8
+{
+	font-size: $h7-font-size;
+	font-family: 'Lato', sans-serif;
+	@extend %PH_font;
+}
+
+@each $fontFamily in $ObjTypography {
+
+	/*FUENTES QUE SE LES PUEDE SOLICITAR CON DIFERENTE FONT-FAMILY*/
+	.font-1-#{$posicionList}
+	{
+		font-size: $h8-font-size;
+		font-family: $fontFamily, sans-serif;
+		@extend %PH_font;
+	}
+	.font-2-#{$posicionList}
+	{
+		font-size: $h1-font-size;
+		font-family: $fontFamily, sans-serif;
+		@extend %PH_font;
+	}
+	.font-3-#{$posicionList}
+	{
+		font-size: $h2-font-size;
+		font-family: $fontFamily, sans-serif;
+		@extend %PH_font;
+	}
+	.font-4-#{$posicionList}
+	{
+		font-size: $h3-font-size;
+		font-family: $fontFamily, sans-serif;
+		@extend %PH_font;
+	}
+	.font-5-#{$posicionList}
+	{
+		font-size: $h4-font-size;
+		font-family: $fontFamily, sans-serif;
+		@extend %PH_font;
+
+	}
+	.font-6-#{$posicionList}
+	{
+		font-size: $h5-font-size;
+		font-family: $fontFamily, sans-serif;
+		@extend %PH_font;
+
+	}
+	.font-7-#{$posicionList}
+	{
+		font-size: $h6-font-size;
+		font-family: $fontFamily, sans-serif;
+		@extend %PH_font;
+	}
+	.font-8-#{$posicionList}
+	{
+		font-size: $h7-font-size;
+		font-family: $fontFamily, sans-serif;
+		@extend %PH_font;
+
+	}
+	/*Incremento la variable posicionList en cada iteración*/
+	$posicionList: $posicionList + 1;
+
+}
+
+// distintivo
+.badge{
+	position: absolute;
+	display: flex;
+	right: 32px;
+	top: 12%;
+	color: #AAAAAA;
+	z-index:1;
+	min-width: 10px;
+	border-radius: 10px;
+	background-color: transparent;
+	white-space: nowrap;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 16px;
+	vertical-align: baseline;
+	padding: 3px 8px;
+}
+.badge-red
+{
+	@extend .bg-red;
+	@extend .white;
+}
+.badge-blue
+{
+	@extend .bg-blue;
+	@extend .white;
+}
+.badge-green
+{
+	@extend .bg-green;
+	@extend .white;
+}
+.badge-orange
+{
+	@extend .bg-orange;
+	@extend .white;
+}
+.badge-yellow
+{
+	@extend .bg-yellow;
+	@extend .white;
+
+}
+.badge-black
+{
+	@extend .bg-black;
+	@extend .white;
+
+}
+.badge-white
+{
+	@extend .bg-white;
+	@extend .black;
+
+
+}
+// clase para agregar los tres puntos suspensivos a un texto
+.text-cut
+{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+.label
+{
+	display: inline;
+	padding: .2em .6em .3em;
+	font-size: 75%;
+	line-height: 1;
+	color: #fff;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+	margin: 2px;
+}
+// clase usada para añadir efecto de un link a algun elemento
+.link
+{
+	cursor: pointer;
+	&:hover
+	{
+		opacity: 0.8;
+	}
+}
+
+// clase usada para crear una linea divisora
+.divider
+{
+	@include box-shadow(0 0 0 1px rgba(0,0,0,.08));
+	margin-top:10px;
+	margin-bottom:10px;
+	width:100%;
+}
+
+// clase usada para usar un texto divisor
+
+.help-block
+{
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	color: #737373;
+}
+.no-list {
+	list-style:none
+}
+.text-shadow {
+	text-shadow:1px 1px 1px rgba(0,0,0,.4)
+}
+.font-bold
+{
+	font-weight: bold;
+}
+.bold,.strong {
+	font-weight:700
+}
+.no-bold,.normal {
+	font-weight:400
+}
+@for $i from 1 to 10 {
+	.w-#{100 * $i} {
+		font-weight:#{100 * $i};
+	}
+}
+
+
+@for $i from 9 to 21 {
+	.f#{$i} {
+		font-size:#{$i+"px"};
+		@extend %PH_font;
+	}
+}
+.f30 {
+	font-size:30px;
+	@extend %PH_font;
+}
+.f40 {
+	font-size:40px;
+	@extend %PH_font;
+}
+.f50 {
+	font-size:50px;
+	@extend %PH_font;
+}
+.f60 {
+	font-size:60px;
+	@extend %PH_font;
+}
+.size-small {
+	font-size:75%!important;
+	@extend %PH_font;
+}
+.size-normal {
+	font-size:100%!important;
+	@extend %PH_font;
+}
+.size-medium {
+	font-size:125%!important;
+	@extend %PH_font;
+}
+.size-big,.size-large {
+	font-size:150%!important;
+	@extend %PH_font;
+}
+.size-huge {
+	font-size:200%!important;
+	@extend %PH_font;
+}
+
+.text-rgb-2 {
+	color:rgba(#37474f,.2)
+}
+.text-rgb-3 {
+	color:rgba(#37474f,.3)
+}
+.text-rgb-4 {
+	color:rgba(#37474f,.4)
+}
+.text-rgb-5 {
+	color:rgba(#37474f,.5)
+}
+.text-rgb-6 {
+	color:rgba(#37474f,.6)
+}
+.text-rgb-7 {
+	color:rgba(#37474f,.7)
+}
+.text-rgb-8 {
+	color:rgba(#37474f,.8)
+}
+.text-rgb-9 {
+	color:rgba(#37474f,.9)
+}
+.text-rgb-10 {
+	color:rgba(#37474f,1)
+}
+
+/*Estilos border*/
+@for $i from 1 through 5 {
+	.border-bottom-#{$i}
+	{
+		border-bottom: solid  unquote($i + "px") rgba($border-color,.5) ;
+	}
+	.border-left-#{$i}
+	{
+		border-left: solid  unquote($i + "px") rgba($border-color,.5) ;
+	}
+	.border-top-#{$i}
+	{
+		border-top: solid  unquote($i + "px") rgba($border-color,.5) ;
+	}
+	.border-right-#{$i}
+	{
+		border-right: solid  unquote($i + "px") rgba($border-color,.5) ;
+	}
+}
+/*contenedor con la clase code que se usa para poder agregar codigo html*/
+.cont-code
+{
+
+	color: #333;
+	background-color: #f7f7f9;
+	border: solid 1px rgba(51,51,51,0.12);
+	overflow: auto;
+	height: auto;
+	border-width: 1px;
+	margin: 10px 5px;
+	font-size: 13px;
+	line-height: 1.42857143;
+	cursor: text;
+	padding: 30px 15px;
+	border-radius: 2px;
+	border-left:solid 3px #455A64;
+	& p
+	{
+		color: rgba($color_11,.7);
+	}
+
+	& code{
+		white-space: pre-wrap;
+	}
+}
+.code_info{
+	color: #c7254e;
+	background-color: #f9f2f4      ;
+	border-radius: 4px;
+	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+	padding: 2px 4px;
+	font-size: 90%;
+	margin: 0px 10px;
+}

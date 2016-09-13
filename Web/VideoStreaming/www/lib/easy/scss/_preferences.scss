@@ -1,0 +1,173 @@
+
+html,body,main{
+	height:100%,
+}
+//Estilos basicos body
+body {
+	background  : $body-background;
+	font-family : $body-font-family;
+	color       : $body-color;
+	font-size   : $font-size-md;
+	transition: all ease 0.1s;
+	overflow-x:hidden;
+	letter-spacing: .1px;
+	text-rendering: optimizeLegibility;
+}
+//Estilos basicos links (<a></a>)
+a {
+	color           : $link-color;
+	text-decoration : none !important;
+}
+input:focus{
+	outline-color: transparent;
+}
+// Estilos básicos de los encabezados
+h1, h2, h3, h4, h5, h6 {
+	font-family    : $header-font-family;
+	font-weight    : $header-font-weight;
+	text-transform : $header-text-transform;
+	color          : $body-color;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+// Tamaños y estilos de los encabezados:
+h1 {
+	font-size : $h1-font-size;
+	line-height: 1.2;
+}
+h2 {
+	font-size : $h2-font-size;
+	line-height: 1.2;
+}
+h3 {
+	font-size : $h3-font-size;
+	line-height: 1.2;
+}
+h4 {
+	font-size : $h4-font-size;
+	line-height: 1.2;
+}
+h5 {
+	font-size : $h5-font-size;
+	line-height: 1.2;
+}
+h6 {
+	font-size : $h6-font-size;
+	line-height: 1.2;
+}
+// Imágenes responsive
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+// scroll por defecto para la pagina
+::-webkit-scrollbar {
+	width: 12px;
+	height: 13px;
+}
+::-webkit-scrollbar-track {
+	box-shadow:  0px 0px 1px 0px rgba(0,0,0,0.2);
+	-webkit-border-radius:3px;
+	border-radius:0px;
+}
+::-webkit-scrollbar-track-piece {
+	background-color:transparent;
+}
+::-webkit-scrollbar-thumb,::-webkit-scrollbar-thumb:window-inactive {
+
+	border: 3px solid rgba(255,255,255,0);
+	background-clip: content-box;
+	background-color: rgba(0,0,0,0.2);
+	border-radius:49px;
+}
+
+
+// loading para la pagina
+
+#loading {
+	background-color:$body-background;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0px;
+	z-index: 999999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	transition: all 0.4s;
+
+}
+
+.loading-icon {
+	position: relative;
+	width: 40px;
+	height: 40px;
+}
+.loading-icon span {
+	display:block;
+	bottom:0px;
+	width: 15px;
+	height: 15px;
+	position:absolute;
+	top: 16px;
+	left: 4px;
+	border-radius:50%;
+	background:$color_239;
+
+}
+.loading-icon span:nth-child(1){
+	animation: icon-loading 1 1.5s infinite ease-in-out;
+	display:none;
+}
+.loading-icon span:nth-child(2){
+	left:20px;
+	animation: icon-loading 1 1.5s infinite ease-in-out;
+	display:none;
+
+}
+.loading-icon span:nth-child(3){
+	top:0px;
+	animation: icon-loading 1 1.5s infinite ease-in-out;
+	display:none;
+}
+.loading-icon span:nth-child(4){
+	top:0px;
+	left:20px;
+	display:none;
+	animation: icon-loading 1 1.5s infinite ease-in-out;
+}
+
+.loading-icon span:nth-child(5){
+	top:0px;
+	left:-5px;
+	animation-delay: -0.32s !important;
+	animation: icon-loading 1.4s infinite ease-in-out;
+}
+.loading-icon span:nth-child(6){
+	top:0px;
+	left:20px;
+	animation-delay: -0.16s !important;
+	animation: icon-loading 1.4s infinite ease-in-out;
+
+}
+.loading-icon span:nth-child(7){
+	top:0px;
+	left:45px;
+	animation-delay: -0.10s !important;
+	animation: icon-loading 1.4s infinite ease-in-out;
+}
+
+@keyframes icon-loading
+{
+	0% {transform: scale(0);}
+	80% {transform: scale(0);}
+	100% {transform: scale(0);}
+	40% {transform: scale(1);}
+}

@@ -1,0 +1,37 @@
+<ion-view view-title="Video Streaming Test, Listen">
+  <ion-nav-bar class="bar-stable servicios-bar">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <section class= "home-container">
+      <div class="averia-container">
+        <p class="averia-description">DEMO PARA PROBAR EL LECTOR DE AUDIO CON ANDROID</p>
+      </div>
+      <!-- <div class="list list-inset">
+        <label class="item item-input">
+          <i class="icon ion-speakerphone placeholder-icon"></i>
+          <input type="text" placeholder="Let me speak..." ng-model="data.speechText">
+        </label>
+      </div>
+      <button class="button button-full button-positive" ng-click="speakText()">
+        Speak!
+      </button> -->
+
+
+      <div class="card">
+        <h4 class="divider">Resultado</h4>
+        <div class="item">
+          {{textoObtenido}}
+        </div>
+        <button class="button button-full button-positive" ng-click="iniReconocimiento()">
+          Escuchar
+        </button>
+        <button class="button button-full" ng-click="finReconocimiento()">
+          Finalizar
+        </button>
+      </div>
+
+    </section>
+  </ion-content>
+</ion-view>

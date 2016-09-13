@@ -1,0 +1,7 @@
+{
+    "name": "angular-locale_es-co",
+    "main": ["./angular-locale_es-co.js"],
+    "dependencies": {
+        "angular": ">=1"
+    }    
+}

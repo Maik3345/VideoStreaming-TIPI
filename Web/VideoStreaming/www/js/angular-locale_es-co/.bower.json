@@ -1,0 +1,19 @@
+{
+  "name": "angular-locale_es-co",
+  "main": [
+    "./angular-locale_es-co.js"
+  ],
+  "dependencies": {
+    "angular": ">=1"
+  },
+  "homepage": "https://github.com/jmconde/angular-locale_es-co",
+  "_release": "35541a5f23",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "35541a5f239a24f86b841164d39ebc2eae8df500"
+  },
+  "_source": "https://github.com/jmconde/angular-locale_es-co.git",
+  "_target": "*",
+  "_originalSource": "angular-locale_es-co"
+}

@@ -1,0 +1,51 @@
+
+// --------------------------------------------------------------------
+// ------- Estilos para los sliders
+// --------------------------------------------------------------------
+
+
+
+// Slider sencillo
+.carousel
+{
+      overflow: hidden;
+      position: relative;
+      max-height: 400px;
+      width: 100%;
+
+      & .carousel-galery
+      {
+            height: 100%;
+            width: 100%;
+            position: relative;
+      }
+
+      & .carousel-galery img
+      {
+            position: absolute;
+            width: 100%;
+            vrtical-align: top;
+            top: 0px;
+            left: 100%;
+      }
+
+      & .carousel-galery img.active
+      {
+            // left: 0px;
+      }
+
+      &  .carousel-after, & .carousel-before{
+            position: absolute;;
+            top: 50%;
+            left: 20px;
+            font-size: 30px;
+            @extend .link;
+
+      }
+
+      &  .carousel-before
+      {
+            left: auto;
+            right: 20px;
+      }
+}

@@ -1,0 +1,509 @@
+
+
+// elemento contenedor de toda la pagina
+.container
+{
+	@include trasition(all 0.1s, ease-in-out, 0.1s);
+	@extend .#{$fila};
+	height: 100%;
+
+
+	& .container-inner
+	{
+		@include trasition(all 0.1s, ease-in-out, 0.1s);
+		@extend .#{$fila};
+		@extend .p-t-90;
+		@extend .p-b-100;
+		@extend .n-100;
+		@extend .md-95;
+		height: auto;
+	}
+}
+
+//contenedor invisible
+.close-modal {
+	position: fixed;
+	top: 0;
+	right:0px;
+	bottom:0px;
+	left: 0;
+	display: block;
+	opacity: 0.6;
+	width: 100%;
+	height: 100%;
+	z-index: 200;
+	@extend .background-black;
+}
+.no-shadow {
+	box-shadow:none!important
+}
+/*Cont*/
+%PH_cont
+{
+	@include box-shadow(1px 1px 1px 0 rgba(0,0,0,.07),1px 2px 5px 0 rgba(0,0,0,.06));
+	@include box-sizing(border-box);
+	height: auto;
+	margin-bottom:10px;
+}
+.cont-1
+{
+	@extend %PH_cont;
+	background-color: $color_256;
+	border-radius: 5px;
+}
+.cont-2
+{
+	@extend %PH_cont;
+	background-color: transparent;
+}
+.cont-3
+{
+	@extend %PH_cont;
+	background-color: $color_256;
+}
+.cont-4
+{
+	@extend %PH_cont;
+	background-color: $color_256;
+	border-radius: 3px;
+}
+
+/*Section*/
+.section
+{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+/*X panel*/
+
+.x-panel
+{
+	@extend .#{$columna};
+
+	margin-bottom:20px;
+
+	& .x-panel-cont
+	{
+		@extend .#{$fila};
+		@extend .cross-start;
+		@extend .cont-1;
+		borer:solid 1px #e5e5e5;
+
+		& .x-panel-title
+		{
+			@extend .#{$fila};
+			@extend .no-wrap;
+			border:solid 1px #ddd;
+			border-bottom: 1px solid $color-246;
+			padding: 10px;
+			margin-bottom: 10px;
+			background: #eee;
+
+			& .x-title
+			{
+				@extend .#{$fila};
+				@extend .no-wrap;
+				font-size: $unit + 0.1;
+				color:$color-249;
+				@extend .color-icon-before-249;
+			}
+
+			& .x-panel-tools
+			{
+				@extend .#{$fila};
+				@extend .no-wrap;
+				@extend .abcenter;
+				@extend .n-auto;
+
+				& .x-icon-panel
+				{
+					@extend .color-icon-before-249;
+					@extend .link;
+				}
+
+			}
+
+		}
+		& .x-panel-info
+		{
+			@extend .#{$fila};
+			@extend .cross-start;
+
+
+			& .x-info
+			{
+				max-height: 5000px;
+				padding-top: 30px;
+				@extend .#{$fila};
+				@extend .cross-start;
+				@include trasition(max-height 0.2s);
+				padding: 30px 5px;
+
+				@include desde(md){
+					padding: 30px 20px;
+				}
+
+				&::before{
+					position: absolute;
+					top: 0px;
+					left: 15px;
+					font-size: 12px;
+					color: #959595;
+					text-transform: uppercase;
+					letter-spacing: 1px;
+					content: "Ejemplo";
+				}
+
+
+			}
+
+		}
+		& .x-panel-content-code
+		{
+			height: 0px;
+			margin-top: 30px;
+			overflow: hidden;
+			@extend .#{$fila};
+			padding: 0 5px;
+
+			@include desde(md){
+				padding: 0 20px;
+			}
+
+			&::before{
+				position: relative;;
+				top: 0px;
+				left: 15px;
+				font-size: 12px;
+				margin-bottom: 15px;
+				margin-top: 20px;
+				color: #959595;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				content: "Código";
+			}
+		}
+	}
+}
+
+
+
+/*Alerts notifications*/
+
+.notification
+{
+	width: 301px;
+	max-height: 610px;
+	min-height: 210px;
+	overflow:hidden;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	z-index: 300;
+	padding-top:20px;
+	padding-right:15px;
+	@extend .main-end;
+	@extend .cross-start;
+}
+
+.cont-notification {
+
+	padding: 5px 5px;
+	width: 301px;
+	min-height: 20px;
+	max-height: auto;
+	cursor: default;
+	margin-bottom: 10px;
+	opacity:0.9;
+	overflow: hidden;
+	@include trasition(0.1, linear, 0.1);
+	@include box-sizing(border-box);
+
+	@extend .radius-5;
+	@extend .#{$fila};
+	@extend .#{$columna};
+	@extend .rel;
+
+	&:hover
+	{
+		opacity:1;
+		@include trasition(0.1, linear, 0.1);
+	}
+
+	& .notification-title {
+
+		@extend .#{$fila};
+		@extend .n-85;
+		@extend .#{$columna};
+
+
+	}
+	.notification-inner {
+		@extend .#{$fila};
+		@extend .n-95;
+		@extend .#{$columna};
+		@extend .cross-start;
+
+
+		& .notification-text
+		{
+			@extend .#{$fila};
+		}
+
+
+	}
+}
+.notification-close
+{
+	z-index: 20;
+	visibility: hidden;
+}
+.cont-notification:hover .notification-close
+{
+	visibility: visible;
+}
+.succes-notification
+{
+	color: #ffffff;
+	background-color: #45825A;
+	border-color: #45825A;
+	box-shadow: 0 0 1px 1px #45825A;
+
+}
+.info-notification
+{
+	color: #E9EDEF;
+	background-color: rgba(52, 152, 219, 0.88);
+	border-color: rgba(52, 152, 219, 0.88);
+
+}
+.warning-notification
+{
+	color: #E9EDEF;
+	background-color: rgba(243, 156, 18, 0.88);
+	border-color: rgba(243, 156, 18, 0.88);
+
+}
+.danger-notification
+{
+	color: #E9EDEF;
+	background-color: rgba(231, 76, 60, 0.88);
+	border-color: rgba(231, 76, 60, 0.88);
+
+}
+.black-notification
+{
+	color: #E9EDEF;
+	background-color: #383d43;
+	border-color: rgba(52, 73, 94, 0.88);
+
+}
+.white-notification
+{
+	color: $color_253;
+	background-color: #FFFFFF;
+	border-color: $color_253;
+
+	& .notification-close
+	{
+		color: $color_253;
+	}
+}
+
+
+
+// Alertas
+%PH_alert {
+	padding: 15px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	position: relative;
+	border:solid 1px transparent;
+	@extend .#{$fila};
+	@extend .align-center;
+	@extend .ng_animate-6;
+
+
+	& .alert-close{
+		@extend .icon-close-6-6;
+	}
+	& .alert-inner
+	{
+		@extend .font-8;
+		@extend .n-95;
+	}
+
+}
+
+//alert
+*[alert-succes]
+{
+	color: #FFF;
+	background-color: rgba($color-alert-succes,1);
+	border-color: $color-alert-succes;
+	border-left:solid 5px rgba(#333,0.5);
+	@extend %PH_alert;
+}
+*[alert-default]
+{
+	color: #455a64;
+	background-color:rgba($color-alert-default,.6);
+	border-color:#b0bec5;
+	border-left:solid 5px rgba(#333,0.5);
+	@extend %PH_alert;
+
+	& .icon-close
+	{
+		color: #455a64;
+	}
+}
+*[alert-primary]
+{
+	color: #FFF;
+	background-color: rgba($color-alert-primary,1);
+	border-color: $color-alert-primary;
+	border-left:solid 5px rgba(#333,0.5);
+	@extend %PH_alert;
+}
+*[alert-info]
+{
+	color: #FFF;
+	background-color: rgba($color-alert-info,1);
+	border-color: $color-alert-info;
+	border-left:solid 5px rgba(#333,0.5);
+	@extend %PH_alert;
+}
+*[alert-warning]
+{
+	color: #FFF;
+	background-color: rgba($color-alert-warning,1);
+	border-color: $color-alert-warning;
+	border-left:solid 5px rgba(#333,0.5);
+	@extend %PH_alert;
+}
+*[alert-danger]
+{
+	color: #FFF;
+	background-color: rgba($color-alert-danger,1);
+	border-color: $color-alert-danger;
+	border-left:solid 5px rgba(#333,0.5);
+	@extend %PH_alert;
+}
+
+%PH_alert_border {
+
+	background-color: transparent;
+	border: 1px solid #eee;
+
+}
+//bordeados
+*[alert-succes]
+{
+	&[alert-border] {
+
+		& h4
+		{
+			color: $color-alert-succes;
+		}
+		color: $body-color;
+		border-left:solid 5px $color-alert-succes;
+		@extend %PH_alert;
+		@extend %PH_alert_border;
+
+		& .icon-close,& .icon-close:hover{
+			color: $color-alert-succes;
+		}
+
+
+	}
+}
+*[alert-default]
+{
+	&[alert-border] {
+		& h4
+		{
+			color: $body-color;
+		}
+		color: $body-color;
+		border-left:solid 5px $color-alert-default_dark ;
+		@include box-shadow(0px 1px 1px 1px rgba(0, 0, 0, 0.07));
+		@extend %PH_alert;
+		@extend %PH_alert_border;
+
+		& .icon-close,& .icon-close:hover{
+			color: $body-color;
+		}
+
+
+	}
+}
+*[alert-primary]
+{
+	&[alert-border] {
+		& h4
+		{
+			color: $color-alert-primary;
+		}
+		color: $body-color;
+		border-left:solid 5px $color-alert-primary;
+		@extend %PH_alert;
+		@extend %PH_alert_border;
+
+		& .icon-close,& .icon-close:hover{
+			color: $color-alert-primary;
+		}
+	}
+}
+*[alert-info]
+{
+	&[alert-border] {
+
+		& h4
+		{
+			color: $color-alert-info;
+		}
+		color: $body-color;
+		border-left:solid 5px $color-alert-info;
+		@extend %PH_alert;
+		@extend %PH_alert_border;
+
+		& .icon-close,& .icon-close:hover{
+			color: $color-alert-info;
+		}
+	}
+}
+*[alert-warning]
+{
+	&[alert-border] {
+		& h4
+		{
+			color: $color-alert-warning;
+		}
+		color: $body-color;
+		border-left:solid 5px $color-alert-warning;
+		@extend %PH_alert;
+		@extend %PH_alert_border;
+
+		& .icon-close,& .icon-close:hover{
+			color: $color-alert-warning;
+		}
+	}
+}
+*[alert-danger]
+{
+	&[alert-border] {
+
+		& h4
+		{
+			color: $color-alert-danger;
+		}
+		color: $body-color;
+		border-left:solid 5px  $color-alert-danger;
+		@extend %PH_alert;
+		@extend %PH_alert_border;
+
+		& .icon-close,& .icon-close:hover{
+			color: $color-alert-danger;
+		}
+	}
+}
