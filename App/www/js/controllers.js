@@ -1,11 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,$ionicPush,$state,$cordovaInAppBrowser,$http,$timeout,$ionicPlatform,$state) {
+.controller('DashCtrl', function($scope,$ionicPush,$state,$cordovaInAppBrowser,$http,$timeout,$ionicPlatform) {
 
   // --------------------------------------------------------------------
   // ------- Notificaciones push ionic
   // --------------------------------------------------------------------
-
+  $scope.token_dispositivo = '';
   var push = new Ionic.Push({
     "debug": true,
     'pluginConfig': {
@@ -22,6 +22,7 @@ angular.module('starter.controllers', [])
     "onRegister": function(data) {
       // Imprimo token generado o obtenido para el dispositivo.
       console.log("Token del dispositivo:"+data.token);
+      $scope.token_dispositivo = data.token
     }
   });
   push.register(function(token) {
@@ -65,6 +66,8 @@ angular.module('starter.controllers', [])
         // console.log(res_peticion)
         $scope.link= res_peticion.url;
         window.open($scope.link, "_system");
+
+        // send(JSON.stringify({Funcion: "cambiar_EstadoAgente"}));
       }).error(function ( respuesta, status ) {
         console.log('error', respuesta, status );
       });
@@ -245,9 +248,25 @@ angular.module('starter.controllers', [])
   // Ejecutar la funcion  al presionar la tecla volumen subir audio
   document.addEventListener("volumeupbutton", openStreaming, false);
   function openStreaming() {
+    // Preparo datos para la peticicon
+      var obj_Data = {
+        fn_Modelo: "fn_agente_solicitando_transmision",
+        modelo: "modelo_Agentes",
+        obj_parametros: "token",
+        token: $scope.token_dispositivo
+      };
+      
+    $http.post('http://vegacontenedor3.ingeneo.co/videostreaming/servicios_VideoStreaming/module/CRUD/crud_modificar',obj_Data)
+      .success(function ( respuesta ) {
 
-    // Inicio transmision.
-    $scope.reunion('videoStreaming1.php',false,1);
+        var res_peticion = ( respuesta );
+        // console.log(res_peticion)
+        console.log("La solicitud ha sido enviada")
+
+        // send(JSON.stringify({Funcion: "cambiar_EstadoAgente"}));
+      }).error(function ( respuesta, status ) {
+        console.log('error', respuesta, status );
+      });
   }
   $scope.openStreaming = function ()
   {
