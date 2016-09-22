@@ -1,0 +1,89 @@
+
+
+pagina de donde se obtubo la informacion: https://devdactic.com/ionic-push-notifications-guide/
+
+1:seguir los pasos iniciales para instalar los plugins necesarios:
+
+cd devdactic-push
+ionic add ionic-platform-web-client
+
+
+el siguiente paso necesita el sender_id, segun la guia de la pagina web, este numero no es necesario por el momento, vasta
+con añadir el comando:
+
+ionic plugin add phonegap-plugin-push --variable SENDER_ID="GCM_PROJECT_NUMBER"
+
+/////////////
+comando a añadir:ionic plugin add phonegap-plugin-push --variable SENDER_ID=some-value
+/////////////
+
+
+2: Iniciar el proyecto en nuestra cuenta de ionic, pagina para crear la cuenta o usarla: http://ionic.io/
+
+ionic io init
+
+/// Luego ingresa el siguiente comando, el cual servira para entrar por asi decirle en modo de desarrollo, servira
+para cuando se esten probando las notificaciones, nos genere por medio de la console el API_TOKEN, el cual servira para
+enviar las notificaciones por medio de postman:
+
+ionic config set dev_push true
+
+3: Codigo usado en el modulo
+
+Necesario: 'ionic.service.core', 'ionic.service.push','ngCordova'
+
+
+angular.module('starter', ['ionic','ionic.service.core', 'ionic.service.push','ngCordova'])
+
+
+
+4: Codigo usado en el controlador
+
+Necesario: $ionicPush
+
+
+//////////
+.controller('DashCtrl', function($scope,$ionicPush,$state) {
+  var push = new Ionic.Push({
+    "debug": true,
+    // Cuando llegue la notificacion
+    "onNotification": function(notification) {
+      var payload = notification.payload;
+      console.dir(notification, payload);
+      $state.go(payload.state)
+    },
+    "onRegister": function(data) {
+      console.log(data.token);
+    }
+  });
+
+
+  push.register(function(token) {
+    console.log("Token obtenido:",token.token);
+    push.saveToken(token);  // persist the token in the Ionic Platform
+  });
+
+})
+//////////
+
+
+5: Es necesario tener los siguientes plugins dentro de la carpeta lib:
+
+Buscar como instalarlos por medio de npm o bower
+
+ionic-service-core
+ionic-service-push
+ngCordova
+ionic-platform-web-client
+
+Luego de tener todo listo es necesario pasar a crear la API_KEY y certificar el proyecto en ionic,
+Para ello ingresamos a las opciones del proyecto que se nos creo en la cuenta de ionic, una vez dentro
+dirigirse a:
+
+1 Settigns->API keys: generar el token para la app
+2 settings->Certificates: crear el certificado para el proyecto, para enviar las notificaciones, podemos emplear
+el token que nos genera ionic cuando ejecutamos la app, si aun no hemos cambiado el comando:ionic config set dev_push true,
+significa que estamos en modo de prueba, tenemos que desactivarlo: ionic config set dev_push false, pero al desactivarlo no podremos
+probar las notificaciones, para ello tendremos que registrar el proyecto en google,
+seguir los pasos: http://docs.ionic.io/docs/android-push-profiles, si ha seguido los pasos, en la consola deberia de estar apareciendo 
+un token, este es el que servira para emplearlo en postman y asi enviar las notificaciones.

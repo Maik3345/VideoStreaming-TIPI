@@ -1,0 +1,19 @@
+
+<!-- Importado desde footer.jade-->
+<!-- mensajes alerta-->
+<section>
+  <div ng-show="(objNotify).length &gt; 0" class="notification ng_animate-1">
+    <div ng-show="Notificacion.visibilidadNotify == true" ng-repeat="Notificacion in objNotify" ng-class="{'black-notification': Notificacion.tipoNotify == 'black-notification','white-notification': Notificacion.tipoNotify == 'white-notification','succes-notification': Notificacion.tipoNotify == 'succes-notification','warning-notification': Notificacion.tipoNotify == 'warning-notification','info-notification': Notificacion.tipoNotify == 'info-notification','danger-notification': Notificacion.tipoNotify == 'danger-notification'}" class="cont-notification ng_animate-1">
+      <div class="notification-inner row">
+        <div class="notification-title row font-6">
+          <p class="font-6">{{Notificacion.tituloNotificacion}}</p>
+        </div>
+        <div class="notification-text row font-8">
+          <p>{{Notificacion.menssageNotify}}.</p>
+        </div>
+      </div><a ng-click="closeSpecificNotifications($index)" class="icon-close-6-6 notification-close"></a>
+    </div>
+  </div>
+</section>
+<footer></footer></html>
+<!-- Importado desde footer.jade-->

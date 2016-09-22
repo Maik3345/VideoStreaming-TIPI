@@ -1,0 +1,9 @@
+/*
+Para personalizar la apariencia base de easy, puede anular variables, en el archivo de _variables.scss
+*/
+
+// Incluyo todo easy
+@import "../www/lib/easy/scss/easy";
+// Incluyo archivo para estilos nuevos
+
+@import "style";

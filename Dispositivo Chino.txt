@@ -1,0 +1,29 @@
+# Aplicaciones necesarias
+
+1. Google play services
+2. Google play
+3. Kingroot
+4. Link2sd
+5. Xposed installer
+6. Xposed addition
+7. Google acounts
+
+
+# Necesario
+
+ * Primero instalar kingroot, esto nos dara permisos root en el dispositivo
+ * Instalar Link2sd
+ * Instalar google play services: luego de ser instalado, es necesario volverla una app predeterminada del sistema,
+ para esto empleamos Link2sd, con esta app buscar google play services y luego cambiarla a app predeterminada.
+ * Instalar google play: Hacer el mismo proceso de google play services
+ * Instalar google acounts: inciar sesion y verificar que google play services y google play ya aparescan con la cuenta ingresada
+
+# Hasta este punto ya se deberia tener google play funcionando, en caso de no funcionar, se debera eliminar la app y buscar en internet
+la apk que le pueda servir para el dispositivo, en caso de ser google play quien no funcione, buscar tambien su apk correspondiente.
+
+
+# Cambiar funcionamiento de los botones de android.
+
+  * Instalar xposed installer:https://getmovil.com/xposed/xposed-framework/,
+    Luego instalar el modulo Xposed addition, para cambiar  o añadir funcionalidades:
+    http://www.fandroides.com/modifica-la-funcion-de-los-botones-de-tu-android-con-xposed-additions/

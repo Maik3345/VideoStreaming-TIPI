@@ -1,0 +1,85 @@
+// La idea principal de como crear los elementos de la grid  fue tomada de la grid desarrollada por Escueladigital:http://escueladigital.pe/
+// Contendor padre
+.#{$fila} {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  position: relative;
+}
+
+// Contendor hijo
+.#{$columna} {
+  margin: 0px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// Para que un elemnto ocupe todo el tamaño de un contenedor
+.whole_wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+// Generacion del core de la grid
+@each $size,
+$screen-size in $specific_breakpoints {
+  // Loops para tamaños en porcentajes y fracciones
+  @media all and (min-width: $screen-size) {
+    // Tamaños en porcentajes
+    @for $i from 1 through 20 {
+      .#{$size}-#{$i*5} {
+        width: unquote($i*5+ "%");
+        max-width: unquote($i*5+ "%");
+      }
+    }
+    @for $i from 1 through 12 {
+      .#{$size}#{$i} {
+        width: (100% / 12) * $i;
+        max-width: (100% / 12) * $i;
+      }
+    }
+    // Tamaños Base en pixeles incia en 5 y va hasta 1300 de 5 en 5
+    @for $i from 1 through 300 {
+      .#{$size}-px-#{$i*5} {
+        width: unquote($i*5+ "px");
+        max-width: unquote($i*5+ "px");
+      }
+    }
+    // Propiedad pra definir las columnas del layout masonry
+    @for $i from 1 through 10 {
+      .cc-#{$size}-#{$i} {
+        column-count: #{$i};
+      }
+    }
+  }
+  // Tamaño en pixeles con el valor de 0px
+  .#{$size}-px-0 {
+    width: 0px;
+    max-width: 0px;
+  }
+  // Tamaño auto
+  .#{$size}-auto {
+    white-space: nowrap;
+    width: auto !important;
+  }
+  // Tamaño en proporcion al contenido
+  .#{$size}-auto-cell-size,
+  .auto-cell-size {
+    white-space: nowrap;
+    width: 1%;
+    max-width: 1%;
+  }
+  // Esta propiedad sirve para dar un alto del 100%, sirve a la hora de crear elementos que contendran informaci y queremos que sean del tamaño de la pantalla */
+  @for $i from 1 through 10 {
+    .height_#{$i* 10}-#{$size} {
+      height: #{$i* 10 + "%"} !important;
+    }
+  }
+}

@@ -1,0 +1,1090 @@
+// --------------------------------------------------------------------
+// ------- Utilidades para maquetar
+// --------------------------------------------------------------------
+
+// Propiedades para usar a la hora de maquetar la pagina web
+
+
+// Tamaño del alto de un contenedor, auto
+.height-auto,
+.h-a
+{
+	height: auto !important;
+	@include trasition(1/10, ease-in-out, 1/10);
+}
+
+// Esta propiedad sirve para asigniar un tamaño fijo, indicando el breakpoint se podra asignar un tamaño para cada pantalla
+@for $i from 0 through 200 {
+	// De 1px en 1px
+	.height-#{$i}
+	{
+		height: $i + unquote( "px") !important;
+
+	}
+	// De 5px en 5px
+	.height-#{$i*5}
+	{
+		height: $i * 5px !important;
+
+	}
+
+}
+
+
+// Esta propiedad sirve para hacer uso del atributo overflow
+.no-overflow
+{
+	overflow:hidden;
+}
+.overflow-auto {
+	overflow:auto;
+}
+.overflow-scroll {
+	overflow:scroll;
+}
+// Esta propiedad sirve para el border radius inicia en 1 y va hasta 10 de 1 en 1
+@for $i from 1 through 10 {
+	.radius-#{$i}
+	{
+		border-radius: $i + px !important;
+	}
+}
+//Propiedad para dar un border-radius de 50%
+.circle
+{
+	border-radius:50% !important;
+}
+// Propiedad para quitar el border-radius de un elemento
+.no-border-radius,.no-radius,.no-b-r {
+	border-radius:0px !important;
+}
+// Esta propieda quita los padding del elemento
+.no-p,
+.no-padding
+{
+	padding: 0px !important;
+}
+// Esta propiedad quita los margin del elemento
+.no-m,
+.no-margin
+{
+	margin: 0px !important;
+}
+// Eliminar border de un elemento
+.no-b {
+  border: none !important;
+}
+// Esta propiedad sive para hacer invisible un elemento en la pagina web, Se puede usar la propiedad mas los mediaquery, con lo que podremos ver cierto elemento a cierta resolucion de la pantalla
+.d-none,
+.hidden,
+.hide
+{
+	display: none;
+}
+// Esta propiedad sive para hacer visibe un elemento en la pagina web, Se puede usar la propiedad mas los mediaquery, con lo que podremos ver cierto elemento a cierta resolucion de la pantalla
+.visible
+{
+	display: block;
+}
+// Esta propiedad sirve para asignar padding, su uso es Padding-5, Padding-10 etc, la propiedad padding se agrega en los cuatro lados del elementos
+@for $i from 1 through 100 {
+
+	// padding
+	.p-#{$i},
+	.padding-#{$i}
+	{
+		padding: $i + unquote( "px") !important;
+	}
+	// padding de 5px
+	.p-#{$i*5},
+	.padding-#{$i*5}
+	{
+		padding: $i * 5px !important;
+	}
+	// Margin
+	.m-#{$i},
+	.margin-#{$i}
+	{
+		margin: $i + unquote( "px") !important;
+	}
+	// margin de 5px
+	.m-#{$i*5},
+	.margin-#{$i*5}
+	{
+		margin: $i * 5px !important;
+	}
+}
+// Padding en las direciones especificas de los elementos su medida llega hasta 100 y va de uno en uno
+@for $i from 1 through 100{
+	// Padding left
+	.p-l-#{$i},
+	.padding-left-#{$i}{
+		padding-left  : $i + unquote( "px") !important;
+	}
+	// Padding left+right
+	.p-l-r-#{$i},
+	.p-r-l-#{$i},
+	.padding-left-right-#{$i},
+	.padding-right-left-#{$i}{
+		padding-left  : $i + unquote( "px") !important;
+		padding-right  : $i + unquote( "px") !important;
+	}
+	// Padding right
+	.p-r-#{$i},
+	.padding-right-#{$i}{
+		padding-right : $i + unquote( "px") !important;
+	}
+	// Padding top
+	.p-t-#{$i},
+	.padding-top-#{$i}{
+		padding-top : $i + unquote( "px") !important;
+	}
+	// Padding bottom
+	.p-b-#{$i},
+	.padding-bottom-#{$i}{
+		padding-bottom : $i + unquote( "px") !important;
+	}
+	// Padding top+bottom
+	.p-t-b-#{$i},
+	.p-b-t-#{$i},
+	.padding-top-bottom-#{$i},
+	.padding-bottom-top-#{$i}{
+		padding-bottom : $i + unquote( "px") !important;
+		padding-top : $i + unquote( "px") !important;
+	}
+}
+// Padding en las direciones especificas su medida empiesa en 1 llega hasta 100 y va de 5 en 5
+
+@for $i from 1 through 100{
+
+	// Padding left de 5px
+	.p-l-#{$i*5},
+	.padding-left-#{$i*5}{
+		padding-left  : $i * 5px !important;
+	}
+	// Padding right de 5px
+	.p-l-r-#{$i*5},
+	.padding-left-right-#{$i*5}{
+		padding-left  : $i * 5px !important;
+		padding-right  : $i * 5px !important;
+	}
+	// Padding left+right de 5px
+	.p-l-r-#{$i*5},
+	.p-r-l-#{$i*5},
+	.padding-left-right-#{$i*5},
+	.padding-right-left-#{$i*5}{
+		padding-left  : $i * 5px !important;
+		padding-right  : $i * 5px !important;
+	}
+	// Padding right de 5px
+	.p-r-#{$i*5},
+	.padding-right-#{$i*5}{
+		padding-right : $i * 5px !important;
+	}
+	// Padding top de 5px
+	.p-t-#{$i*5},
+	.padding-top-#{$i*5}{
+		padding-top : $i * 5px !important;
+	}
+	// Padding bottom de 5px
+	.p-b-#{$i*5},
+	.padding-bottom-#{$i*5}{
+		padding-bottom : $i * 5px !important;
+	}
+	// Padding top+bottom de 5px
+	.p-t-b-#{$i * 5},
+	.p-b-t-#{$i * 5}
+	.padding-top-bottom-#{$i * 5},
+	.padding-bottom-top-#{$i * 5}{
+		padding-bottom : $i * 5px !important;
+		padding-top : $i * 5px !important;
+	}
+}
+
+// Medidas para posicionamiento de elemento, llegan hasta 100px de 1 en 1
+@for $i from 1 through 100 {
+
+	// margin top
+	.m-t-#{$i},
+	.margin-top-#{$i}{
+		margin-top: $i + unquote( "px") !important;
+	}
+	// margin bottom
+	.m-b-#{$i},
+	.margin-bottom-#{$i}{
+		margin-bottom: $i + unquote( "px") !important;
+	}
+	// margin left
+	.m-l-#{$i},
+	.margin-left-#{$i}{
+		margin-left: $i + unquote( "px") !important;
+	}
+	// margin right
+	.m-r-#{$i},
+	.margin-right-#{$i}{
+		margin-right: $i + unquote( "px") !important;
+	}
+	//Negativo
+	.m-t-#{$i}-#{$i},
+	.margin-top-#{$i}-#{$i}
+	{
+		margin-top:  unquote("-") + $i + unquote( "px") !important;
+	}
+	.m-b-#{$i}-#{$i},
+	.margin-bottom-#{$i}-#{$i}
+	{
+		margin-bottom:  unquote("-") + $i + unquote( "px") !important;
+	}
+	.m-l-#{$i}-#{$i},
+	.margin-left-#{$i}-#{$i}
+	{
+		margin-left:  unquote("-") + $i + unquote( "px") !important;
+	}
+	.m-r-#{$i}-#{$i},
+	.margin-right-#{$i}-#{$i}
+	{
+		margin-right:  unquote("-") + $i + unquote( "px") !important;
+	}
+
+	//Posicionamiento de pseudoelementos o de un elemento (relativo,abosoluto,statico etc...) con las propiedades top,left,botttom,right
+	.top-before-#{$i}:before,
+	.top-after-#{$i}:after,
+	.top-#{$i}
+	{
+		top: $i + unquote( "px") !important;
+	}
+	.bottom-before-#{$i}:before,
+	.bottom-after-#{$i}:after,
+	.bottom-#{$i}
+	{
+		bottom: $i + unquote( "px") !important;
+	}
+	.left-before-#{$i}:before,
+	.left-after-#{$i}:after,
+	.left-#{$i}
+	{
+		left: $i + unquote( "px") !important;
+	}
+	.right-before-#{$i}:before,
+	.right-after-#{$i}:after,
+	.right-#{$i}
+	{
+		right: $i + unquote( "px") !important;
+	}
+	//Negativo
+	.top-before-#{$i}-#{$i}:before,
+	.top-after-#{$i}-#{$i}:after,
+	.top-#{$i}-#{$i}
+	{
+		top:  unquote("-") + $i + unquote( "px") !important;
+	}
+	.bottom-before-#{$i}-#{$i}:before,
+	.bottom-after-#{$i}-#{$i}:after,
+	.bottom-#{$i}-#{$i}
+	{
+		bottom:  unquote("-") + $i + unquote( "px") !important;
+	}
+	.left-before-#{$i}-#{$i}:before,
+	.left-after-#{$i}-#{$i}:after,
+	.left-#{$i}-#{$i}
+	{
+		left:  unquote("-") + $i + unquote( "px") !important;
+	}
+	.right-before-#{$i}-#{$i}:before,
+	.right-after-#{$i}-#{$i}:after,
+	.right-#{$i}-#{$i}
+	{
+		right:  unquote("-") + $i + unquote( "px") !important;
+	}
+
+}
+// Medidas para posicionamiento de elemento empiezan desde 1 y van hasta 500 de 5 en 5
+
+@for $i from 1 through 100 {
+
+	// margin top de 5px
+	.m-t-#{$i * 5},
+	.margin-top-#{$i * 5}
+	{
+		margin-top: $i * 5px !important;
+	}
+	// margin bottom de 5px
+	.m-b-#{$i * 5},
+	.margin-bottom-#{$i * 5}
+	{
+		margin-bottom: $i * 5px !important;
+	}
+	// margin left de 5px
+	.m-l-#{$i * 5},
+	.margin-left-#{$i * 5}
+	{
+		margin-left: $i * 5px !important;
+	}
+	// margin right de 5px
+	.m-r-#{$i * 5},
+	.margin-right-#{$i * 5}
+	{
+		margin-right: $i * 5px !important;
+	}
+	//Negativo
+	.m-t-#{$i * 5}-#{$i * 5},
+	.margin-top-#{$i * 5}-#{$i * 5}
+	{
+		margin-top:  unquote("-") + $i * 5px !important;
+	}
+	.m-b-#{$i * 5}-#{$i * 5},
+	.margin-bottom-#{$i * 5}-#{$i * 5}
+	{
+		margin-bottom:  unquote("-") + $i * 5px !important;
+	}
+	.m-l-#{$i * 5}-#{$i * 5},
+	.margin-left-#{$i * 5}-#{$i * 5}
+	{
+		margin-left:  unquote("-") + $i * 5px !important;
+	}
+	.m-r-#{$i * 5}-#{$i * 5},
+	.margin-right-#{$i * 5}-#{$i * 5}
+	{
+		margin-right:  unquote("-") + $i * 5px !important;
+	}
+
+	//Posicionamiento de pseudoelementos o de un elemento (relativo,abosoluto,statico etc...) con las propiedades top,left,botttom,right
+
+	.top-before-#{$i * 5}:before,
+	.top-after-#{$i * 5}:after,
+	.top-#{$i * 5}
+	{
+		top: $i * 5px !important;
+	}
+	.bottom-before-#{$i * 5}:before,
+	.bottom-after-#{$i * 5}:after,
+	.bottom-#{$i * 5}
+	{
+		bottom: $i * 5px !important;
+	}
+	.left-before-#{$i * 5}:before,
+	.left-after-#{$i * 5}:after,
+	.left-#{$i * 5}
+	{
+		left: $i * 5px !important;
+	}
+	.right-before-#{$i * 5}:before,
+	.right-after-#{$i * 5}:after,
+	.right-#{$i * 5}
+	{
+		right: $i * 5px !important;
+	}
+	//Negativo
+	.top-before-#{$i * 5}-#{$i * 5}:before,
+	.top-after-#{$i * 5}-#{$i * 5}:after,
+	.top-#{$i * 5}-#{$i * 5}
+	{
+		top:  unquote("-") + $i * 5px !important;
+	}
+	.bottom-before-#{$i * 5}-#{$i * 5}:before,
+	.bottom-after-#{$i * 5}-#{$i * 5}:after,
+	.bottom-#{$i * 5}-#{$i * 5}
+	{
+		bottom:  unquote("-") + $i * 5px !important;
+	}
+	.left-before-#{$i * 5}-#{$i * 5}:before,
+	.left-after-#{$i * 5}-#{$i * 5}:after,
+	.left-#{$i * 5}-#{$i * 5}
+	{
+		left:  unquote("-") + $i * 5px !important;
+	}
+	.right-before-#{$i * 5}-#{$i * 5}:before,
+	.right-after-#{$i * 5}-#{$i * 5}:after,
+	.right-#{$i * 5}-#{$i * 5}
+	{
+		right:  unquote("-") + $i * 5px !important;
+	}
+}
+
+// Estas propiedades serviran para el posicionamientos agil de elementos utilizando position de css
+.fixed{
+	position: fixed !important;
+}
+.abs,
+.absolute
+{
+	position: absolute !important;
+}
+.rel,
+.relative
+{
+	position: relative !important;
+}
+.static
+{
+	position: static !important;
+}
+.inherit
+{
+	position: inherit !important;
+}
+.initial
+{
+	position: initial !important;
+}
+.sticky
+{
+	position: sticky !important;
+}
+.unset
+{
+	position: unset !important;
+}
+// Medias para posicionar elementos
+.top-before,
+.top-after,
+.top
+{
+	top: 0px !important;
+}
+.left-before,
+.left-after,
+.left
+{
+	left:0px !important;
+}
+.right-before,
+.right-after,
+.right
+{
+	right:0px !important;
+}
+.bottom-before,
+.bottom-after,
+.bottom
+{
+	bottom:0px !important;
+}
+// Medidas para posicionar textos
+.txt_align_left
+{
+	text-align: left;
+}
+.txt_align_center
+{
+	text-align: center;
+}
+.txt_align_right
+{
+	text-align: right;
+}
+
+// Esta propiedad sirve para asigniar un z-index
+@for $i from 1 through 100 {
+	.z-index-#{$i * 5}
+	{
+		z-index: $i * 5 !important;
+	}
+}
+
+//Propiedades con breakpoints
+@each $breakpoint, $value in $specific_breakpoints {
+
+	// Estilos que solo queremos que se visualicen en la resolucion en especifica
+	@include hasta($value) {
+		// Esta propieda quita los padding del elemento
+		.no-p-#{$breakpoint},
+		.no-padding-#{$breakpoint}
+		{
+			padding: 0px !important;
+		}
+		// Esta propiedad sirve para no dejar que los elementos sobrepasen el contenedor padre, al asignar esta clase los elementos hijos deberan de acoplarce al contenedor padre
+		.no-wrap-#{$breakpoint}
+		{
+			flex-wrap: nowrap !important;
+		}
+		// Propiedad para dar un border-radius: 50%
+		.circle-#{$breakpoint}
+		{
+			border-radius:50% !important;
+		}
+	}
+
+	// Estilos que queremos que se empiecen a visualizar desde cierta resolucion
+	@include desde($value)
+	{
+
+		//Propiedades en breakpoints
+
+		// Tamaño del alto de un contenedor, auto
+		.height-auto-#{$breakpoint},
+		.h-a-#{$breakpoint}
+		{
+			height: auto !important;
+		}
+		// Esta propiedad sirve para asigniar un tamaño fijo, indicando el breakpoint se podra asignar un tamaño para cada pantalla
+		@for $i from 0 through 200
+		{
+			// de 1px en 1px
+			.height-#{$i}-#{$breakpoint}
+			{
+				height: $i + unquote( "px") !important;
+			}
+
+			// de 5px en 5px
+			.height-#{$i*5}-#{$breakpoint}
+			{
+				height: $i * 5px !important;
+			}
+
+		}
+
+
+		//Padding y margin deacuerdo al media query
+		@for $i from 1 through 100{
+			// Padding
+			.p-#{$i}-#{$breakpoint},
+			.padding-#{$i}-#{$breakpoint}
+			{
+				padding: $i + unquote( "px") !important;
+			}
+			// Padding de 5px
+			.p-#{$i*5}-#{$breakpoint},
+			.padding-#{$i*5}-#{$breakpoint}
+			{
+				padding: $i * 5px !important;
+			}
+			// Margin
+			.m-#{$i}-#{$breakpoint},
+			.margin-#{$i}-#{$breakpoint}
+			{
+				margin: $i + unquote( "px") !important;
+			}
+			// Margin de 5px
+			.m-#{$i*5}-#{$breakpoint},
+			.margin-#{$i*5}-#{$breakpoint}
+			{
+				margin: $i * 5px !important;
+			}
+			// Padding left
+			.p-l-#{$i}-#{$breakpoint},
+			.padding-left-#{$i}-#{$breakpoint}{
+				padding-left  : $i + unquote( "px") !important;
+			}
+			// Padding left+right
+			.p-l-r-#{$i}-#{$breakpoint},
+			.p-r-l-#{$i}-#{$breakpoint},
+			.padding-left-right-#{$i}-#{$breakpoint},
+			.p-right-left-#{$i}-#{$breakpoint}{
+				padding-left  : $i + unquote( "px") !important;
+				padding-right  : $i + unquote( "px") !important;
+			}
+			// Padding right
+			.p-r-#{$i}-#{$breakpoint},
+			.padding-right-#{$i}-#{$breakpoint}{
+				padding-right : $i + unquote( "px") !important;
+			}
+			// Padding top
+			.p-t-#{$i}-#{$breakpoint},
+			.padding-top-#{$i}-#{$breakpoint}{
+				padding-top : $i + unquote( "px") !important;
+			}
+			// Padding bottom
+			.p-b-#{$i}-#{$breakpoint},
+			.padding-bottom-#{$i}-#{$breakpoint}{
+				padding-bottom : $i + unquote( "px") !important;
+			}
+			// Padding top+bottom
+			.p-t-b-#{$i}-#{$breakpoint},
+			.p-b-t-#{$i}-#{$breakpoint},
+			.padding-top-bottom-#{$i}-#{$breakpoint},
+			.padding-bottom-top-#{$i}-#{$breakpoint}{
+				padding-bottom : $i + unquote( "px") !important;
+				padding-top : $i + unquote( "px") !important;
+			}
+			// Padding left
+			.p-l-#{$i*5}-#{$breakpoint},
+			.padding-left-#{$i*5}-#{$breakpoint}{
+				padding-left  : $i * 5px !important;
+			}
+			// Padding left+right en 5px
+			.p-l-r-#{$i*5}-#{$breakpoint},
+			.p-r-l-#{$i*5}-#{$breakpoint},
+			.padding-left-right-#{$i*5}-#{$breakpoint},
+			.padding-right-left-#{$i*5}-#{$breakpoint}{
+				padding-left  : $i * 5px !important;
+				padding-right  : $i * 5px !important;
+			}
+			// Padding right
+			.p-r-#{$i*5}-#{$breakpoint},
+			.padding-right-#{$i*5}-#{$breakpoint}{
+				padding-right : $i * 5px !important;
+			}
+			// Padding top
+			.p-t-#{$i*5}-#{$breakpoint},
+			.padding-top-#{$i*5}-#{$breakpoint}{
+				padding-top : $i * 5px !important;
+			}
+			// Padding bottom
+			.p-b-#{$i*5}-#{$breakpoint},
+			.padding-bottom-#{$i*5}-#{$breakpoint}{
+				padding-bottom : $i * 5px !important;
+			}
+			.p-t-b-#{$i * 5}-#{$breakpoint},
+			.p-b-t-#{$i * 5}-#{$breakpoint},
+			.padding-top-bottom-#{$i * 5}-#{$breakpoint},
+			.padding-bottom-top-#{$i * 5}-#{$breakpoint}{
+				padding-bottom : $i * 5px !important;
+				padding-top : $i * 5px !important;
+			}
+			// Margin top
+			.m-t-#{$i}-#{$breakpoint},
+			.margin-top-#{$i}-#{$breakpoint}
+			{
+				margin-top: $i + unquote( "px") !important;
+			}
+			// Margin bottom
+			.m-b-#{$i}-#{$breakpoint},
+			.margin-bottom-#{$i}-#{$breakpoint}
+			{
+				margin-bottom: $i + unquote( "px") !important;
+			}
+			// Margin left
+			.m-l-#{$i}-#{$breakpoint},
+			.margin-left-#{$i}-#{$breakpoint}
+			{
+				margin-left: $i + unquote( "px") !important;
+			}
+			// Margin right
+			.m-r-#{$i}-#{$breakpoint},
+			.margin-right-#{$i}-#{$breakpoint}
+			{
+				margin-right: $i + unquote( "px") !important;
+			}
+			// Margin Negativo
+
+			// Margin top negativo
+			.m-t-#{$i}-#{$i}-#{$breakpoint},
+			.margin-top-#{$i}-#{$i}-#{$breakpoint}
+			{
+				margin-top:  unquote("-") + $i + unquote( "px") !important;
+			}
+			// Margin bottom negativo
+			.m-b-#{$i}-#{$i}-#{$breakpoint},
+			.margin-bottom-#{$i}-#{$i}-#{$breakpoint}
+			{
+				margin-bottom:  unquote("-") + $i + unquote( "px") !important;
+			}
+			// Margin left negativo
+			.m-l-#{$i}-#{$i}-#{$breakpoint},
+			.margin-left-#{$i}-#{$i}-#{$breakpoint}
+			{
+				margin-left:  unquote("-") + $i + unquote( "px") !important;
+			}
+			// Margin right negativo
+			.m-r-#{$i}-#{$i}-#{$breakpoint},
+			.margin-right-#{$i}-#{$i}-#{$breakpoint}
+			{
+				margin-right:  unquote("-") + $i + unquote( "px") !important;
+			}
+
+
+			// Margin top de 5px
+			.m-t-#{$i * 5}-#{$breakpoint},
+			.margin-top-#{$i * 5}-#{$breakpoint}
+			{
+				margin-top: $i * 5px !important;
+			}
+			// Margin bottom de 5px
+			.m-b-#{$i * 5}-#{$breakpoint},
+			.margin-bottom-#{$i * 5}-#{$breakpoint}
+			{
+				margin-bottom: $i * 5px !important;
+			}
+			// Margin left de 5px
+			.m-l-#{$i * 5}-#{$breakpoint},
+			.margin-left-#{$i * 5}-#{$breakpoint}
+			{
+				margin-left: $i * 5px !important;
+			}
+			// Margin right de 5px
+			.m-r-#{$i * 5}-#{$breakpoint},
+			.margin-right-#{$i * 5}-#{$breakpoint}
+			{
+				margin-right: $i * 5px !important;
+			}
+			//Negativo
+			.m-t-#{$i * 5}-#{$i * 5}-#{$breakpoint},
+			.margin-top-#{$i * 5}-#{$i * 5}-#{$breakpoint}
+			{
+				margin-top:  unquote("-") + $i * 5px !important;
+			}
+			.m-b-#{$i * 5}-#{$i * 5}-#{$breakpoint},
+			.margin-bottom-#{$i * 5}-#{$i * 5}-#{$breakpoint}
+			{
+				margin-bottom:  unquote("-") + $i * 5px !important;
+			}
+			.m-l-#{$i * 5}-#{$i * 5}-#{$breakpoint},
+			.margin-left-#{$i * 5}-#{$i * 5}-#{$breakpoint}
+			{
+				margin-left:  unquote("-") + $i * 5px !important;
+			}
+			.m-r-#{$i * 5}-#{$i * 5}-#{$breakpoint},
+			.margin-right-#{$i * 5}-#{$i * 5}-#{$breakpoint}
+			{
+				margin-right:  unquote("-") + $i * 5px !important;
+			}
+
+
+			//Posicionamiento de pseudoelementos o de un elemento (relativo,abosoluto,statico etc...) con las propiedades top,left,botttom,right
+
+			// Propiedad top para un elemento before ó after
+			.top-before-#{$i}#{$breakpoint}:before,
+			.top-after-#{$i}#{$breakpoint}:after,
+			.top-#{$i}#{$breakpoint}
+			{
+				top: $i + unquote( "px") !important;
+			}
+			// Propiedad bottom para un elemento before ó after
+			.bottom-before-#{$i}#{$breakpoint}:before,
+			.bottom-after-#{$i}#{$breakpoint}:after,
+			.bottom-#{$i}#{$breakpoint}
+			{
+				bottom: $i + unquote( "px") !important;
+			}
+			// Propiedad left para un elemento before ó after
+			.left-before-#{$i}#{$breakpoint}:before,
+			.left-after-#{$i}#{$breakpoint}:after,
+			.left-#{$i}#{$breakpoint}
+			{
+				left: $i + unquote( "px") !important;
+			}
+			// Propiedad right para un elemento before ó after
+			.right-before-#{$i}#{$breakpoint}:before,
+			.right-after-#{$i}#{$breakpoint}:after,
+			.right-#{$i}#{$breakpoint}
+			{
+				right: $i + unquote( "px") !important;
+			}
+			//Negativo
+
+			// Propiedad top para un elemento before ó after
+			.top-before-#{$i}-#{$i}#{$breakpoint}:before,
+			.top-after-#{$i}-#{$i}#{$breakpoint}:after,
+			.top-#{$i}-#{$i}#{$breakpoint}
+			{
+				top:  unquote("-") + $i + unquote( "px") !important;
+			}
+			// Propiedad top para un elemento before ó after
+			.bottom-before-#{$i}-#{$i}#{$breakpoint}:before,
+			.bottom-after-#{$i}-#{$i}#{$breakpoint}:after,
+			.bottom-#{$i}-#{$i}#{$breakpoint}
+			{
+				bottom:  unquote("-") + $i + unquote( "px") !important;
+			}
+			// Propiedad top para un elemento before ó after
+			.left-before-#{$i}-#{$i}#{$breakpoint}:before,
+			.left-after-#{$i}-#{$i}#{$breakpoint}:after,
+			.left-#{$i}-#{$i}#{$breakpoint}
+			{
+				left:  unquote("-") + $i + unquote( "px") !important;
+			}
+			// Propiedad top para un elemento before ó after
+			.right-before-#{$i}-#{$i}#{$breakpoint}:before,
+			.right-after-#{$i}-#{$i}#{$breakpoint}:after,
+			.right-#{$i}-#{$i}#{$breakpoint}
+			{
+				right:  unquote("-") + $i + unquote( "px") !important;
+			}
+
+
+
+			//Posicionamiento en 5px
+
+			// Propiedad top para un elemento before ó after
+			.top-before-#{$i * 5}#{$breakpoint}:before,
+			.top-after-#{$i * 5}#{$breakpoint}:after,
+			.top-#{$i * 5}#{$breakpoint}
+			{
+				top: $i * 5px !important;
+			}
+			// Propiedad bottom para un elemento before ó after
+			.bottom-before-#{$i * 5}#{$breakpoint}:before,
+			.bottom-after-#{$i * 5}#{$breakpoint}:after,
+			.bottom-#{$i * 5}#{$breakpoint}
+			{
+				bottom: $i * 5px !important;
+			}
+			// Propiedad left para un elemento before ó after
+			.left-before-#{$i * 5}#{$breakpoint}:before,
+			.left-after-#{$i * 5}#{$breakpoint}:after,
+			.left-#{$i * 5}#{$breakpoint}
+			{
+				left: $i * 5px !important;
+			}
+			// Propiedad right para un elemento before ó after
+			.right-before-#{$i * 5}#{$breakpoint}:before,
+			.right-after-#{$i * 5}#{$breakpoint}:after,
+			.right-#{$i * 5}#{$breakpoint}
+			{
+				right: $i * 5px !important;
+			}
+			//Negativo
+
+			// Propiedad top para un elemento before ó after
+			.top-before-#{$i * 5}-#{$i * 5}#{$breakpoint}:before,
+			.top-after-#{$i * 5}-#{$i * 5}#{$breakpoint}:after,
+			.top-#{$i * 5}-#{$i * 5}#{$breakpoint}
+			{
+				top:  unquote("-") + $i * 5px !important;
+			}
+			// Propiedad top para un elemento before ó after
+			.bottom-before-#{$i * 5}-#{$i * 5}#{$breakpoint}:before,
+			.bottom-after-#{$i * 5}-#{$i * 5}#{$breakpoint}:after,
+			.bottom-#{$i * 5}-#{$i * 5}#{$breakpoint}
+			{
+				bottom:  unquote("-") + $i * 5px !important;
+			}
+			// Propiedad top para un elemento before ó after
+			.left-before-#{$i * 5}-#{$i * 5}#{$breakpoint}:before,
+			.left-after-#{$i * 5}-#{$i * 5}#{$breakpoint}:after,
+			.left-#{$i * 5}-#{$i * 5}#{$breakpoint}
+			{
+				left:  unquote("-") + $i * 5px !important;
+			}
+			// Propiedad top para un elemento before ó after
+			.right-before-#{$i * 5}-#{$i * 5}#{$breakpoint}:before,
+			.right-after-#{$i * 5}-#{$i * 5}#{$breakpoint}:after,
+			.right-#{$i * 5}-#{$i * 5}#{$breakpoint}
+			{
+				right:  unquote("-") + $i * 5px !important;
+			}
+
+
+		}
+		// visible y hidden, posee mediaquerys
+		@for $i from 1 through 1{
+			// Propiedad para hacer visible un elemento, con el mediaquery se podria indicar a que relosucion se visualizara
+			.visible-#{$breakpoint}{
+				display: flex !important;
+			}
+		}
+		@for $i from 1 through 1{
+			// Propiedad para hacer invisible un elemento, con el mediaquery se podria indicar a que relosucion se ocultara
+			.d-none-#{$breakpoint},
+			.hidden-#{$breakpoint},
+			.hide-#{$breakpoint}{
+				display: none !important;
+			}
+		}
+	}
+}
+
+
+// For que crear automaticamente las clases de colores, las variables de colores se encuentran almacenadas en _colores.scss por el tamaño del codigo que se genero
+
+// Lista de colores con nombres
+@for $i from 0 to length($objColorName) {
+	// thisColor: es el nombre del color, este nombre se encuentran en el objeto $objColorName
+	$thisColor: nth($objColorName, $i+1);
+	.#{$thisColor} {
+		// $objColor: es un objeto que posee el listado de coleres
+		color: nth($objColor, $i+1) !important;
+	}
+
+	// Propiedad background
+	.bg-#{$thisColor},
+	.background-#{$thisColor} {
+		background: nth($objColor, $i+1) !important;
+	}
+	// Clase empleada para poder definir cualquier color al elemento .ripple-obj
+	.ripple-#{$thisColor} {
+
+		& .ripple-obj
+		{
+			fill:rgba(nth($objColor, $i+1),0.3) !important;
+		}
+	}
+}
+
+
+// Codigo donde se crear las propiedades que sirven para aplicar colores a textos,background colores a iconos, hovers etc.
+
+// $posicionList:Variable que servira para ir añadiendo un numero en especifico a la clase para asi poder llamar al color en especifico deacuerdo a su numero, ejemplo: color_[posicion:1] -> va a traer el color en la posicion 1
+$posicionList: 1;
+
+@each $colorPosicion in $objColor {
+	// $colorPosicion: hace referencia al color que se encuentra en la posicion actual del ciclo
+
+
+	// Propiedad para aplicar la propiedad backgroun a un elemento
+	.bg-#{$posicionList},
+	.background-#{$posicionList}
+	{
+		background-color: $colorPosicion !important;
+	}
+	// Propiedad para aplicar la propiedad color a un elemento
+	.c-#{$posicionList},
+	.color-#{$posicionList}
+	{
+		color: $colorPosicion !important;
+	}
+	// Propiedad para aplicar la propiedad color a un elemento tipo icono, es necesario indicar que tipo de selector posee el icono, esta propiedad aplica color al selector: before
+	.c-i-b-#{$posicionList}:before,
+	.color-icon-before-#{$posicionList}:before
+	{
+		margin-left:10px !important;
+		margin-right:10px !important;
+		color: $colorPosicion !important;
+	}
+	// Propiedad para aplicar la propiedad color a un elemento tipo icono, es necesario indicar que tipo de selector posee el icono, esta propiedad aplica color al selector: after
+	.c-i-a-#{$posicionList}:after,
+	.color-icon-after-#{$posicionList}:after
+	{
+		margin-left:10px !important;
+		margin-right:10px !important;
+		color: $colorPosicion !important;
+	}
+	// Propiedad para aplicar la propiedad hover a un elemento
+	.bg-h-#{$posicionList}:hover,
+	.background-hover-#{$posicionList}:hover{
+		background: $colorPosicion !important;
+
+		// transición por defecto
+		-moz-transition: all 0.1s 0.1s;
+		-ms-transition: all 0.1s 0.1s;
+		-o-transition: all 0.1s 0.1s;
+		-webkit-transition: all 0.1s 0.1s;
+		transition: all 0.1s 0.1s;
+	}
+	// Propiedad para aplicar la propiedad hover a un elemento
+	.c-h-#{$posicionList}:hover,
+	.color-hover-#{$posicionList}:hover{
+		color: $colorPosicion !important;
+
+		// transición por defecto
+		-moz-transition: all 0.1s 0.1s;
+		-ms-transition: all 0.1s 0.1s;
+		-o-transition: all 0.1s 0.1s;
+		-webkit-transition: all 0.1s 0.1s;
+		transition: all 0.1s 0.1s;
+	}
+	// Propiedad para aplicar la propiedad color:hover a un elemento tipo icono, es necesario indicar que tipo de selector posee el icono, esta propiedad aplica color al selector: before
+	.c-i-b-h-#{$posicionList}:hover:before,
+	.color-icon-before-hover-#{$posicionList}:hover:before
+	{
+		color: $colorPosicion !important;
+	}
+	// Propiedad para aplicar la propiedad color:hover a un elemento tipo icono, es necesario indicar que tipo de selector posee el icono, esta propiedad aplica color al selector: after
+	.c-i-a-h-#{$posicionList}:hover:after,
+	.color-icon-after-hover-#{$posicionList}:hover:after
+	{
+		color: $colorPosicion !important;
+	}
+	//Incremento la variable posicionList en cada iteración
+	$posicionList: $posicionList + 1;
+
+}
+
+// Color deacuerdo al breakpoint de la pantalla actual
+@each $breakpoint, $value in $specific_breakpoints {
+
+
+	// $posicionList:Variable que servira para ir añadiendo un numero en especifico a la clase para asi poder llamar al color en especifico deacuerdo a su numero, ejemplo: color_[posicion:1] -> va a traer el color en la posicion 1
+	$posicionList: 1;
+
+	// El breakpoint ira "hasta", ya que la idea de usar estas clases es solamente cuando se llege hasta un resolución en especifica
+
+	@include hasta($value) {
+
+		@each $colorPosicion in $objColor {
+
+			// $colorPosicion: hace referencia al color que se encuentra en la posicion actual del ciclo
+
+			// Propiedad para aplicar la propiedad backgroun a un elemento
+			.bg-#{$posicionList}-#{$breakpoint},
+			.background-#{$posicionList}-#{$breakpoint}
+			{
+				background-color: $colorPosicion !important;
+			}
+			// Propiedad para aplicar la propiedad color a un elemento
+			.c-#{$posicionList}-#{$breakpoint},
+			.color-#{$posicionList}-#{$breakpoint}
+			{
+				color: $colorPosicion !important;
+			}
+			// Propiedad para aplicar la propiedad hover a un elemento
+			.bg-h-#{$posicionList}-#{$breakpoint}:hover,
+			.background-hover-#{$posicionList}-#{$breakpoint}:hover{
+				background: $colorPosicion !important;
+
+				// transición por defecto
+				-moz-transition: all 0.1s 0.1s;
+				-ms-transition: all 0.1s 0.1s;
+				-o-transition: all 0.1s 0.1s;
+				-webkit-transition: all 0.1s 0.1s;
+				transition: all 0.1s 0.1s;
+			}
+			// Propiedad para aplicar la propiedad hover a un elemento
+			.c-h-#{$posicionList}-#{$breakpoint}:hover,
+			.color-hover-#{$posicionList}-#{$breakpoint}:hover{
+				color: $colorPosicion !important;
+
+				// transición por defecto
+				-moz-transition: all 0.1s 0.1s;
+				-ms-transition: all 0.1s 0.1s;
+				-o-transition: all 0.1s 0.1s;
+				-webkit-transition: all 0.1s 0.1s;
+				transition: all 0.1s 0.1s;
+			}
+			// Propiedad para aplicar la propiedad color a un elemento tipo icono, es necesario indicar que tipo de selector posee el icono, esta propiedad aplica color al selector: before
+			.c-i-b-#{$posicionList}-#{$breakpoint}:before,
+			.color-icon-before-#{$posicionList}-#{$breakpoint}:before
+			{
+				margin-left:10px !important;
+				margin-right:10px !important;
+				color: $colorPosicion !important;
+			}
+			// Propiedad para aplicar la propiedad color a un elemento tipo icono, es necesario indicar que tipo de selector posee el icono, esta propiedad aplica color al selector: after
+			.c-i-a-#{$posicionList}-#{$breakpoint}:after,
+			.color-icon-after-#{$posicionList}-#{$breakpoint}:after
+			{
+				margin-left:10px !important;
+				margin-right:10px !important;
+				color: $colorPosicion !important;
+			}
+			// Propiedad para aplicar la propiedad color:hover a un elemento tipo icono, es necesario indicar que tipo de selector posee el icono, esta propiedad aplica color al selector: before
+			.c-i-b-h-#{$posicionList}-#{$breakpoint}:hover:before,
+			.color-icon-before-hover-#{$posicionList}-#{$breakpoint}:hover:before
+			{
+				color: $colorPosicion !important;
+			}
+			// Propiedad para aplicar la propiedad color:hover a un elemento tipo icono, es necesario indicar que tipo de selector posee el icono, esta propiedad aplica color al selector: after
+			.c-i-a-h-#{$posicionList}-#{$breakpoint}:hover:after,
+			.color-icon-after-hover-#{$posicionList}-#{$breakpoint}:hover:after
+			{
+				color: $colorPosicion !important;
+			}
+			//Incremento la variable posicionList en cada iteración
+			$posicionList: $posicionList + 1;
+		}
+	}
+
+}
+
+
+// Rotar elementos
+@for $i from 0 to 36 {
+
+	.rotate-#{10 * $i}
+	{
+		-ms-transform: rotate(#{10 * $i} + "deg");
+		-webkit-transform: rotate(#{10 * $i} + "deg");
+		transform: rotate(#{10 * $i} + "deg");
+		@include trasition(all 0.1s, linear, 0.1s);
+	}
+	.rotate-#{10 * $i}-#{10 * $i}
+	{
+		-ms-transform: rotate(-#{10 * $i} + "deg");
+		-webkit-transform: rotate(-#{10 * $i} + "deg");
+		transform: rotate(-#{10 * $i} + "deg");
+		@include trasition(all 0.1s, linear, 0.1s);
+	}
+
+
+}

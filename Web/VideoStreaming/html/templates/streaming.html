@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="VideoStreaming">
+  <head>
+    <meta charset="UTF-8"/>
+    <!--Meta vierport-->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
+    <!--Icono de la página web-->
+    <link rel="shortcut icon" type="image/x-icon" href=""/>
+    <!--Fuentes por default traidas desde google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Roboto+Slab|Lato|Ubuntu" rel="stylesheet" type="text/css"/>
+    <link href="https://file.myfontastic.com/xVGuRrP4HJGL5kTAGhebPe/icons.css" rel="stylesheet"/>
+    <!--Links de css-->
+    <link rel="stylesheet" href="./www/css/style.css"/>
+    <link rel="stylesheet" href="./www/lib/easy/css/easy.app.css"/>
+    <!-- Titulo de la pagina-->
+    <title>Video Streaming</title>
+  </head>
+  <body ng-controller="videoStreaming" ng-init="verificarSesion()">
+    <div style="height: 0; width: 0; position: absolute; visibility: hidden;" aria-hidden="true">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false">
+        <symbol id="ripply-scott" viewBox="0 0 100 100">
+          <circle id="ripple-shape" cx="1" cy="1" r="1"></circle>
+        </symbol>
+      </svg>
+    </div>
+    <div id="loading">
+      <div class="loading-icon"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <main>
+      <nav class="toolbar">
+        <div class="toolbar-content bg-indigo">
+          <div attr-dropdown="dropdown" class="no-m md-px-70 font-6 icon-bars border-left link row abcenter white ripple"></div>
+          <div class="row abcenter hidden-xs visible-md ripple">
+            <p class="font-7 p-10 white link bold">DEMO VIDEO STREAMING MÚLTIPLE - TIPI</p>
+          </div>
+          <div class="toolbar-option md-30 p-r-50 p-l-50 rel ripple xs-auto">
+            <div class="row abcenter xs-auto m-r-50">
+              <p attr-dropdown="dropdown-notificaciones" class="font-5 bold white icon-bell-1 no-m link"></p>
+            </div>
+            <div attr-dropdown="dropdown-sesion" class="row abcenter xs-auto">
+              <p class="font-7 bold white">{{datosUsuario[0].Nombre_Usuario}}</p>
+            </div><img attr-dropdown="dropdown-sesion" ng-src="{{'../img/' + datosUsuario[0].Avatar_Usuario}}" class="img-icon-2"/>
+            <div name-dropdown="dropdown-sesion" class="drop-down top-45 left n-px-200">
+              <div attr-dropdown="dropdown-sesion" class="close-modal background-transparent z-index-10"></div>
+            </div>
+            <div class="drop-down-cont left-130-130 top-15">
+              <div ng-click="cerrarSesion()" class="drop-down-item">Cerrar sesión</div>
+            </div>
+            <div name-dropdown="dropdown-notificaciones" class="drop-down top-45 left n-px-200">
+              <div attr-dropdown="dropdown-notificaciones" class="close-modal background-transparent z-index-10"></div>
+            </div>
+            <div class="drop-down-cont left-130-130 top-15">
+              <div ng-click="cerrarSesion()" class="drop-down-item">Cerrar sesión</div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container p-t-60 cross-start no-wrap">
+        <row name-dropdown="dropdown" class="lg-15 height_100-n cross-start">
+          <div class="dropdown-toolbar rel top-1-1">
+            <div class="dropdown-cont top-59">
+              <div class="list no-shadow height_80-n">
+                <div class="list-header no-wrap white bg-indigo darken-2">
+                  <p class="font-7 white no-m link bold row abcenter">{{selectAgent.Nombre_Agente}}</p><a modal-attr="small-modal" ng-show="selectAgent.Token_Dispositivo != undefined" class="btn btn-succes icon-bell ripple">Conectar</a>
+                </div>
+                <div class="list-header">
+                  <p class="font-7">Agentes dispoibles</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </row>
+      </div>
+    </main>
+    <!-- Importado desde footer.jade-->
+    <!-- mensajes alerta-->
+    <section>
+      <div ng-show="(objNotify).length &gt; 0" class="notification ng_animate-1">
+        <div ng-show="Notificacion.visibilidadNotify == true" ng-repeat="Notificacion in objNotify" ng-class="{'black-notification': Notificacion.tipoNotify == 'black-notification','white-notification': Notificacion.tipoNotify == 'white-notification','succes-notification': Notificacion.tipoNotify == 'succes-notification','warning-notification': Notificacion.tipoNotify == 'warning-notification','info-notification': Notificacion.tipoNotify == 'info-notification','danger-notification': Notificacion.tipoNotify == 'danger-notification'}" class="cont-notification ng_animate-1">
+          <div class="notification-inner row">
+            <div class="notification-title row font-6">
+              <p class="font-6">{{Notificacion.tituloNotificacion}}</p>
+            </div>
+            <div class="notification-text row font-8">
+              <p>{{Notificacion.menssageNotify}}.</p>
+            </div>
+          </div><a ng-click="closeSpecificNotifications($index)" class="icon-close-6-6 notification-close"></a>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <!--  Libreria de angular.js-->
+      <script src="./www/js/angular/angular.min.js"></script>
+      <!-- Libreria para angular animate-->
+      <script src="./www/js/angular-animate/angular-animate.js"></script>
+      <!-- Libreria para angular ngStorage-->
+      <script src="./www/js/ngstorage/ngStorage.js"></script>
+      <!--  Libreria de jquer-->
+      <script src="./www/js/jquery/dist/jquery.min.js"></script>
+      <script src="./www/js/socket/fancywebsocket.js"></script>
+      <!-- Creacion de la variable app para poderla emplear tanto en factory como controller--><script>
+      var app = angular.module('VideoStreaming', ['ngAnimate','ngStorage']);
+      </script>
+      <!-- Controlador principal-->
+      <script src="./www/js/services/factory.js"></script>
+      <!-- factory-->
+      <script src="./www/js/controller/controller.js"></script>
+      <!-- Jquery para los dropdown-->
+      <script src="./www/js/elements/dropdown.js"></script>
+      <!-- Jquery para los modales-->
+      <script src="./www/js/elements/modal.js"></script>
+      <!-- Jquery para el loading-->
+      <script src="./www/js/elements/loading.js"></script>
+      <!-- Jquery para eventos creados para ciertos elementos-->
+      <script src="./www/js/elements/styles.js"></script>
+      <!-- Script para el svg riple-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+      <script src="./www/js/elements/ripple.js"></script>
+    </footer></html>
+    <!-- Importado desde footer.jade-->
+  </body>
+</html>

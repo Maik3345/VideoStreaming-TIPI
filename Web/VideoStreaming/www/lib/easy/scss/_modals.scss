@@ -1,0 +1,68 @@
+
+
+//modals
+
+.modal
+{
+      position: fixed;
+      top:0px;
+      left:0px;
+      bottom:0px;
+      right: 0px;
+      @extend .#{$fila};
+      @extend .justify-center;
+      @extend .align-start;
+      @extend .z-index-250;
+      /* animation */
+      @extend .ng_animate-3;
+
+
+      & .confirm-modal
+      {
+            animation: 0.3s Animate_scale ease;
+            @keyframes Animate_scale {
+                  0% {
+                        transform: scale(1.04)
+                  }
+                  100% {
+                        transform: scale(1);
+                  }
+            }
+      }
+      & .modal-inner
+      {
+            position:relative;
+            top:40px;
+            @extend .z-index-250;
+            @extend .background-white;
+            @extend .height-auto;
+            @extend .radius-5;
+            /* animation */
+            @extend .ng_animate-5;
+            @include box-shadow(0 5px 15px rgba(0,0,0,.5));
+
+
+
+            & .modal-header
+            {
+                  @extend .#{$fila};
+                  @extend .height-50-n;
+                  @extend .border-bottom-1;
+                  @extend .align-center;
+                  margin-bottom: 5px;
+			padding: 0 10px;
+
+            }
+
+
+            & .modal-content,& .modal-footer
+            {
+                  padding:15px 10px;
+                  @extend .#{$fila};
+                  @extend .border-bottom-1;
+                  @extend .justify-end;
+
+            }
+
+      }
+}

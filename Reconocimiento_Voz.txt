@@ -1,0 +1,73 @@
+Pagina de la informacion:http://devgirl.org/2016/01/08/speaking-with-cordova/
+
+
+1.Instalar las dependencias:
+
+cordova plugin add cordova-plugin-tts
+cordova plugin add https://github.com/macdonst/SpeechRecognitionPlugin
+
+
+2. Luego de tener las dependencias instaladas utilizar este codigo html para una prueba rapida
+
+<ion-content class="padding">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <i class="icon ion-speakerphone placeholder-icon"></i>
+            <input type="text" placeholder="Let me speak..." ng-model="data.speechText">
+          </label>
+        </div>
+        <button class="button button-full button-positive" ng-click="speakText()">
+          Speak!
+        </button>
+
+        <button class="button button-full button-positive"ng-click="record()">
+          Record
+        </button>
+        <div class="card">
+          <div class="item item-text-wrap">
+            {{recognizedText}}
+          </div>
+        </div>
+</ion-content>
+
+
+3. Añadir al controlador
+
+
+.controller('Search', function($scope) {
+
+
+  // Codigo necesario
+  $scope.data = {
+    speechText: ''
+  };
+  $scope.recognizedText = '';
+
+  $scope.speakText = function() {
+    TTS.speak({
+      text: $scope.data.speechText,
+      locale: 'en-GB',
+      rate: 1.5
+    }, function () {
+      // Do Something after success
+    }, function (reason) {
+      // Handle the error case
+    });
+  };
+
+
+  // Esta funcion es la que se emple para el reconocimiento de voz
+  $scope.record = function() {
+
+    // variable que almacena el texto obtenido por el reconocimiento de voz
+    var recognition = new SpeechRecognition();
+    recognition.onresult = function(event) {
+      if (event.results.length > 0) {
+        $scope.recognizedText = event.results[0][0].transcript;
+        $scope.$apply()
+      }
+    };
+    recognition.start();
+  }
+  ///
+})
